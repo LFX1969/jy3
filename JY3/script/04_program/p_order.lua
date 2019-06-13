@@ -305,7 +305,6 @@ t['通用_读档'] = function(int_档案编号)
             G.call('通用_存档',int_档案编号)
             local o_achieve = G.QueryName(0x1017000e)
             if #o_achieve.进度列表 < 9 then 
-                G.call('通用_强退游戏') 
             end
             G.start_program('地图系统_游戏时长监控')
         end 
