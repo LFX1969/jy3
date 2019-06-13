@@ -93,19 +93,6 @@ t['初始化'] = function()
 	G.call('mapoff') 
     G.call('call_title')      --开始游戏界面
 	--G.addUI('v_system')   
-end
-t['地图系统_提示'] = function()
-	while true do
-		G.case(1, '提示结束')
-		G.case(2, '监控')
-		local r = G.wait_case();
-		if r == 1 then
-			G.wait_time(1200)
-			G.removeUI('v_prompt1')
-		elseif r == 9 then 
-			G.call('地图系统_防修改监控')
-		end	
-	end
 end	
 t['地图系统_游戏时长监控'] = function()
 	if G.misc().通天塔时间 == nil then 
@@ -122,23 +109,6 @@ t['地图系统_游戏时长监控'] = function()
 			G.misc().通天塔时间 = G.misc().通天塔时间 + 1
 			G.misc().通天塔监控 = G.misc().通天塔监控 - 1
 		end
-	end
-end
-t['地图系统_游戏加速监控'] = function()
-	G.misc().游戏时间 = 0
-	G.misc().监控时间 = -7
-	while true do 
-		G.wait_time(60000) 
-		G.misc().游戏时间 = G.misc().游戏时间 + 1
-		G.misc().监控时间 = G.misc().监控时间 - 1
-		if G.misc().游戏时间 ~= math.abs(G.misc().监控时间+7) then
-		end
-		if G.misc().测试 == 1 then 
-			G.call('notice1','游戏时间'..G.misc().游戏时间..'时间差'..G.call('通用_读取时间差'))
-		end
-			end 
-		end
-
 	end
 end
 t['地图系统_功能'] = function()
@@ -205,10 +175,9 @@ t['地图系统_事件响应'] = function()
 		G.case(14, '返回标题')
 		G.case(15, '木桩')
 	    local r = G.wait_case();
-		if r == 1 then
+		if r == 2 then
 			G.Tween("color", 800, ui, 0)
 			G.Play(0x49010035, 1,false,100) 
-			G.call('地图系统_防修改监控')
 			G.wait_time(1200)
 			G.call('rest')
 			G.Tween("color", 800, ui, 0xffffff)
