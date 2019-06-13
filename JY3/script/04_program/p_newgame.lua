@@ -28,7 +28,7 @@ t['回答问题']=function()
         elseif  int_选项 == 5 then 
             G.call("talk",'',38,'   痛哭流涕...终于被人想起来了...不过，该不会是蒙的吧',3,0)
             for i = 16,21 do             --基础属性全+200
-                G.call('add_point',i,2)
+                G.call('add_point',i,200)
             end     
             G.call('all_over')
             
