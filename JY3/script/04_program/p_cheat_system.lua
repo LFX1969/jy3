@@ -33,7 +33,7 @@ t['作弊系统_处理作弊指令'] = function(string_作弊指令)
         return
     end
     _string_作弊指令列表 = G.misc().作弊指令列表
-    for i = 1, #_string_作弊指令列表 do
+    for i = 2, #_string_作弊指令列表 do
         if _string_作弊指令列表[i] == string_作弊指令 then
             boolean_是否存在 = true
             break
