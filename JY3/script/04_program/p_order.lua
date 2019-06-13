@@ -9,6 +9,7 @@ local GF = require "gfbase"
 --hide=false
 --private=false
 t['通关_存档'] = function()
+    --G.call('地图系统_防修改监控')
     G.wait_time(200)
     G.QueryName(0x10030001)[tostring(238)] = 1 --设置通关标志
     G.call('通用_存档',G.call('get_point',143))--保存通关存档
@@ -282,6 +283,7 @@ t['通用_读档'] = function(int_档案编号)
             end
             G.call('write_min')
             --G.call('通用_记录时间')
+            --G.start_program('地图系统_游戏加速监控')
             
         end 	
         if int_档案编号 == 0 then 
