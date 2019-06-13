@@ -102,7 +102,7 @@ t['地图系统_提示'] = function()
 		if r == 1 then
 			G.wait_time(1200)
 			G.removeUI('v_prompt1')
-		elseif r == 2 then 
+		elseif r == 9 then 
 			G.call('地图系统_防修改监控')
 		end	
 	end
@@ -132,14 +132,10 @@ t['地图系统_游戏加速监控'] = function()
 		G.misc().游戏时间 = G.misc().游戏时间 + 1
 		G.misc().监控时间 = G.misc().监控时间 - 1
 		if G.misc().游戏时间 ~= math.abs(G.misc().监控时间+7) then
-			G.call('通用_强退游戏')  
 		end
 		if G.misc().测试 == 1 then 
 			G.call('notice1','游戏时间'..G.misc().游戏时间..'时间差'..G.call('通用_读取时间差'))
 		end
-		if G.misc().游戏时间%5 == 0 then
-			if G.misc().游戏时间 - G.call('通用_读取时间差')   > 2 then
-				G.call('通用_强退游戏')
 			end 
 		end
 
@@ -169,7 +165,6 @@ t['地图系统_防修改监控'] = function()
 	end
 	if G.call('get_point',110) ~= math.abs(G.call('get_newpoint',110)+2000)  then
 		print('金钱',G.call('get_point',110),G.call('get_newpoint',110))
-		G.call('通用_强退游戏',205) 
 	end
 	if G.call('get_point',45) ~= math.abs(G.call('get_newpoint',45) + 10)  then
 		print('HP',G.call('get_point',45),G.call('get_newpoint',45))
