@@ -9,7 +9,6 @@ local GF = require "gfbase"
 --hide=false
 --private=false
 t['通关_存档'] = function()
-    --G.call('地图系统_防修改监控')
     G.wait_time(200)
     G.QueryName(0x10030001)[tostring(238)] = 1 --设置通关标志
     G.call('通用_存档',G.call('get_point',143))--保存通关存档
@@ -1197,7 +1196,6 @@ t['goto_map']=function(int_地图代码) --跳转地图
                 G.misc().人物头像 = G.call('get_point',119) 
             end
             G.call('set_point',119,G.misc().人物头像)
-            G.call('地图系统_防修改监控')
             G.call('通用_存档',4)
             G.call('write_min')
             G.call('notice1','自动记录完成')
